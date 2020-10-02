@@ -53,7 +53,6 @@ function createOrDropDatabase(action) {
       //disconnect client when all queries are finished
       client.on('drain', client.end.bind(client));
       client.on('error', function (err) {
-        client.end();
         reject(err);
       });
       client.connect();
